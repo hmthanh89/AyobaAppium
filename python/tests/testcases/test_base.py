@@ -1,6 +1,5 @@
 import pytest
 from core import selenium
-from core.config.driver_config import DriverConfig
 
 
 class TestBase:

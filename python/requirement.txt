@@ -6,4 +6,3 @@ webdriver_manager==1.7
 allure-pytest==2.6.3
 Appium-Python-Client==0.43
 pytest-testrail==2.3.3
-delayed-assert==0.3.2
