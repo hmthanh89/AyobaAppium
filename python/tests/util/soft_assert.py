@@ -45,10 +45,10 @@ def expect_with_screenshot(expr, msg=None):
 
 
 def _attach_screenshot():
-    file, name = utils.get_screenshot_path()
+    file_path, name = utils.get_screenshot_path()
     logging.info("Screen shot %s" % name)
-    selenium.save_screenshot(file)
-    allure.attach.file(source=file, name=name, attachment_type=AttachmentType.PNG)
+    selenium.save_screenshot(file_path)
+    allure.attach.file(source=file_path, name=name, attachment_type=AttachmentType.PNG)
     return name
 
 
