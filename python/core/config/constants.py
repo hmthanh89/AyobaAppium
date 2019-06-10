@@ -1,0 +1,13 @@
+SELENPY_TIMEOUT = "selenpy_timeout"
+SELENPY_POLL_DURING_WAITS = "selenpy_poll_during_waits"
+SELENPY_OVERRIDE_DRIVER = "selenpy_override_driver"
+SELENPY_ELEMENT_CACHING = "selenpy_element_caching"
+SELENPY_DEFAULT_TIMEOUT = 5
+SELENPY_POLL_DURING_DEFAULT_WAITS = 0.2
+SELENPY_OVERRIDE_DRIVER_DEFAULT = True
+SELENPY_ELEMENT_CACHING_DEFAULT = True
+
+REMOTE_HOST_KEY = "remote_host"
+DRIVER_KEY = "driver"
+CAPABILITIES_KEY = "capabilities"
+MAXIMIZE_KEY = "maximize"

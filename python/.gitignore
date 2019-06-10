@@ -1,0 +1,6 @@
+/allure-results
+/.pytest_cache
+*.pyc
+.project
+.pydevproject
+/.idea
