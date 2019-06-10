@@ -18,7 +18,7 @@ namespace SeleniumTests.Tests
         [SetUp]
         public void SetUp()
         {
-            Constants.SetUIEnvVariables();            
+            Config.SetUIEnvVariables();            
             //Create extent test                  
             extentTest = ExtentTestManager.StartTest(TestContextInfo.TestName, TestContextInfo.Description,
                 TestContextInfo.Categories);
@@ -33,10 +33,10 @@ namespace SeleniumTests.Tests
                 Constants.ImgExtension);
 
             //Create new web driver
-            DriverUtils.CreateDriver(new DriverProperties(Constants.ConfigFilePath,
-                Constants.Driver));
+            DriverUtils.CreateDriver(new DriverProperties(Config.ConfigFilePath,
+                Config.Driver));
             DriverUtils.Maximize();
-            DriverUtils.GoToUrl(Constants.Url);
+            DriverUtils.GoToUrl(Config.Url);
         }
 
         [TearDown]

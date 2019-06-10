@@ -14,14 +14,14 @@ namespace SeleniumTests.APITests
         [SetUp]
         public void SetUp()
         {
-            Constants.SetAPIEnvVariables();
+            Config.SetAPIEnvVariables();
         }
 
         private async Task<HttpClient> GetAuthenticatedClient(string email, string password)
         {
             var client = new HttpClient
             {
-                BaseAddress = new Uri(Constants.ApiUrl)
+                BaseAddress = new Uri(Config.ApiUrl)
             };
 
             var creds = new LoginDto
@@ -42,7 +42,7 @@ namespace SeleniumTests.APITests
         {
             return new HttpClient
             {
-                BaseAddress = new Uri(Constants.ApiUrl)
+                BaseAddress = new Uri(Config.ApiUrl)
             };
         }
 

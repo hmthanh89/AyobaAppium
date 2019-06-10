@@ -11,8 +11,8 @@ namespace SeleniumTests.Tests
         [OneTimeSetUp]
         public void BeforeAll()
         {
-            Constants.SetUIEnvVariables();
-            Inject.Bind(Constants.Env);
+            Config.SetUIEnvVariables();
+            Inject.Bind(Config.Env);
             ExtentManager.GetReporter();
 
             //Re-map the interface
