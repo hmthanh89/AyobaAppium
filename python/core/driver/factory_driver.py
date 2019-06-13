@@ -4,7 +4,7 @@ from core.driver.firefox_driver import FirefoxDriver
 from core.driver.remote_driver import RemoteDriver
 from core.driver.mobile_driver import MobileDriver
 from core.driver.ie_driver import IEDriver
-from core.config import default_config
+from core.config import config
 import logging
 
 
@@ -29,9 +29,9 @@ class FactoryDriver:
             MOBILE: MobileDriver()
         }
 
-    def start_driver(self, config, key="default"):
+    def start_driver(self, cfc, key="default"):
         if self.__is_key_existed(key):
-            if default_config.override_driver:
+            if config.override_driver():
                 logging.warning(
                     "Your driver '%s' is already existed. Will close the current and start new one. "
                     "If you want to make sure there is not existed driver, "
@@ -42,12 +42,12 @@ class FactoryDriver:
                     logging.warning("Cannot quit your driver", e)
             else:
                 raise RuntimeError("Your driver '%s' is already existed. Please close it and try again" % key)
-        self._current_driver = self._driver_mapping[config.driver].create_driver(config)
+        self._current_driver = self._driver_mapping[cfc.driver].create_driver(cfc)
         self._driver_manager[key] = self._current_driver
         self._current_key = key
 
     def get_current_driver(self):
-        return self._current_driver.get_webdriver();
+        return self._current_driver.get_webdriver()
 
     def get_driver(self, key):
         if self.__is_key_existed(key):

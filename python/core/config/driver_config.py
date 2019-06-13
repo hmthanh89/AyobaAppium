@@ -1,13 +1,13 @@
 import json
 from core.config import constants
-from core.util.helper import PATH
+from core.util.helper import get_full_path
 
 
 class DriverConfig(object):
 
     @staticmethod
     def get_driver_config(driver_key, config_file):
-        with open(PATH(config_file)) as f:
+        with open(get_full_path(config_file)) as f:
             data = json.load(f)
             item = data[driver_key]
             config = DriverConfig(driver_key,

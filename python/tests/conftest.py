@@ -1,12 +1,11 @@
 import pytest
-import urllib3
 import allure
 from core import selenium
 from allure_commons.types import AttachmentType
 from tests.util import utils
 from core.config.driver_config import DriverConfig
-
-urllib3.disable_warnings()
+from core.config import constants
+import os
 
 
 def pytest_addoption(parser):
@@ -20,6 +19,13 @@ def pytest_addoption(parser):
                      help="Specify the test environment that you need to run on. "
                           "Default value is empty. Available value: qa",
                      metavar="")
+    parser.addoption("--xpath-warning", action="store",
+                     help="Show the warning in case web element has id or name attribute but using xpath for locating"
+                          "Default value is False. Available value: True/False",
+                     metavar="")
+
+    parser.addoption("--element-timeout", action="store", help="Timeout for finding web element. Default value is 5",
+                     metavar="")
 
 
 def pytest_configure(config):
@@ -27,6 +33,8 @@ def pytest_configure(config):
     pytest.conf_key = config.getoption("--conf-key", "chrome_browser", True)
     pytest.test_env = config.getoption("--test-env", "", True)
     pytest.driver_conf = DriverConfig.get_driver_config(pytest.conf_key, pytest.conf_file)
+    os.environ[constants.SELENPY_XPATH_WARNING] = str(config.getoption("--xpath-warning", "", True))
+    os.environ[constants.SELENPY_TIMEOUT] = str(config.getoption("--element-timeout", "", True))
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)

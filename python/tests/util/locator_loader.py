@@ -1,7 +1,7 @@
 import inspect
 import pytest
 import json
-from core.util.helper import PATH
+from core.util.helper import get_full_path
 
 KEY_MAPPING = {
     "chrome": "default",
@@ -20,7 +20,7 @@ def get_locator(name=None):
         platform = KEY_MAPPING[platform]
     if name is None:
         name = lines[0].split('=')[0].replace('self.', '').strip()
-    with open(PATH(LOCATOR_FILE)) as f:
+    with open(get_full_path(LOCATOR_FILE)) as f:
         data = json.load(f)
         locator = data[platform.lower()][page_name][name]
     return locator

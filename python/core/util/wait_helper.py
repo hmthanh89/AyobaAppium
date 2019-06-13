@@ -1,13 +1,13 @@
 import time
 from selenium.common.exceptions import StaleElementReferenceException
-from core.config import default_config
+from core.config import config
 
 
 def wait_until(condition, error=None, timeout=None, polling=None):
     if timeout is None:
-        timeout = default_config.timeout
+        timeout = config.timeout()
     if polling is None:
-        polling = default_config.poll_during_waits
+        polling = config.poll_during_waits()
     max_time = time.time() + timeout
     not_found = None
     while time.time() < max_time:

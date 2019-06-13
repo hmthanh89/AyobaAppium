@@ -2,8 +2,11 @@ from selenium.webdriver.common.by import By
 from core.util.decorator import staleness_of
 from core import selenium
 from core.util.wait_helper import wait_until
-from core.config import default_config
+from core.config import config
 from selenium.common.exceptions import NoSuchElementException
+import logging
+import traceback
+import rootpath
 
 
 class CachedElement:
@@ -45,6 +48,7 @@ class BaseElement:
         self._dynamic_locator = locator
         self._cached_element = None
         self._parent = parent
+        self._is_xpath_warning = False
 
     def format(self, *args):
         self._locator = self._dynamic_locator % args
@@ -70,10 +74,27 @@ class BaseElement:
         return self.__find(False)
 
     def get_element(self, cached=True):
-        if default_config.element_caching and self._cached_element is not None and self._cached_element.driver is self._driver and cached:
+        if config.element_caching() and self._cached_element is not None \
+                and self._cached_element.driver is self._driver and cached:
             return self._cached_element.element
         try:
             self._cached_element = CachedElement(self._driver, self.__find())
+            if self.__is_xpath() and not self._is_xpath_warning and config.xpath_warning():
+                attribute_name = "id"
+                attribute_value = self._cached_element.element.get_attribute(attribute_name)
+                if not attribute_value:
+                    attribute_name = "name"
+                    attribute_value = self._cached_element.element.get_attribute("name")
+                if attribute_value:
+                    path = rootpath.detect()
+                    stack = [line for line in traceback.format_stack() if
+                             path in line and "core\\" not in line]
+                    logging.warning(
+                        "Your defined locator: '%s' has %s attribute '%s'. Please use it instead of xpath." +
+                        "\n\rTraceback: \n\r%s",
+                        self._locator, attribute_name, attribute_value, "\n".join(stack))
+                self._is_xpath_warning = True
+
             return self._cached_element.element
         except NoSuchElementException:
             return None
@@ -177,6 +198,11 @@ class BaseElement:
             if prefix in self._strategies:
                 return prefix, locator[index + 1:].lstrip()
         return 'default', locator
+
+    def __is_xpath(self):
+        if self._locator.startswith(('//', '(//')):
+            return True
+        return False
 
     def __by(self, prefix):
         if prefix == "class":
