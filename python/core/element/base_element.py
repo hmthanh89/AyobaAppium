@@ -90,7 +90,7 @@ class BaseElement:
                     stack = [line for line in traceback.format_stack() if
                              path in line and "core\\" not in line]
                     logging.warning(
-                        "Your defined locator: '%s' has %s attribute '%s'. Please use it instead of xpath." +
+                        "Your defined locator: '%s' has %s attribute with value '%s'. Please use it instead of xpath." +
                         "\n\rTraceback: \n\r%s",
                         self._locator, attribute_name, attribute_value, "\n".join(stack))
                 self._is_xpath_warning = True

@@ -1,1 +1,1 @@
-SCREENSHOT_FOLDER = 'screenshots/'
+SCREENSHOT_FOLDER = '../../screenshots/'

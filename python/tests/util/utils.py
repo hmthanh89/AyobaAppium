@@ -1,5 +1,6 @@
 import uuid
 from tests.util import constants
+from core.util.helper import get_full_path
 
 
 def get_file_name(extension='.png'):
@@ -8,4 +9,4 @@ def get_file_name(extension='.png'):
 
 def get_screenshot_path(extension='.png'):
     name = get_file_name(extension)
-    return constants.SCREENSHOT_FOLDER + name, name
+    return get_full_path(constants.SCREENSHOT_FOLDER + name), name
