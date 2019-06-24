@@ -27,6 +27,7 @@ class GoogleHomePage:
 class GoogleHomePageQA(GoogleHomePage):
 
     def __init__(self):
+        super().__init__()
         self.search_form = BaseElement("id=searchform")
         self.txt_search = TextBox("name=q1", self.search_form)
 

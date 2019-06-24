@@ -46,6 +46,7 @@ def pytest_runtest_makereport(item, call):
     # Add screen shot to allure report for test failed
     if call.when == "call":
         if rep.failed:
-            file, name = utils.get_screenshot_path()
-            selenium.save_screenshot(file)
-            allure.attach.file(file, attachment_type=AttachmentType.PNG)
+            if selenium.get_driver():
+                file, name = utils.get_screenshot_path()
+                selenium.save_screenshot(file)
+                allure.attach.file(file, attachment_type=AttachmentType.PNG)

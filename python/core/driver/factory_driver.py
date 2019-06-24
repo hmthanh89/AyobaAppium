@@ -47,19 +47,21 @@ class FactoryDriver:
         self._current_key = key
 
     def get_current_driver(self):
-        return self._current_driver.get_webdriver()
+        if self._current_driver:
+            return self._current_driver.get_webdriver()
+        return None
 
     def get_driver(self, key):
         if self.__is_key_existed(key):
-            return self._driver_manager[key].get_webdriver();
-        raise RuntimeError("Cannot find '%'. Please make sure that it has been created" % key)
+            return self._driver_manager[key].get_webdriver()
+        raise RuntimeError("Cannot find '%s'. Please make sure that it has been created" % key)
 
     def switch_to_driver(self, key):
         if self.__is_key_existed(key):
             self._current_key = key
             self._current_driver = self._driver_manager[key]
         else:
-            raise RuntimeError("Cannot find '%'. Please make sure that it has been created" % key)
+            raise RuntimeError("Cannot find '%s'. Please make sure that it has been created" % key)
 
     def quit_all(self):
         for key in self._driver_manager:
