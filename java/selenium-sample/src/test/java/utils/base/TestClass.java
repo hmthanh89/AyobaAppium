@@ -31,8 +31,8 @@ public class TestClass {
 		return PageObjectHelper.$Page(oType);
 	}
 	
-	public void loadPage() {
-		PageObjectHelper.loadPage(this);
+	public void loadPageObject() {
+		PageObjectHelper.loadPageObject(this);
 	}
 	
 }

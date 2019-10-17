@@ -38,7 +38,7 @@ public class WebTestBase extends TestClass {
 		Driver.setTimeOut(Constants.SHORT_TIME);
 		Driver.maximizeBrowser();
 		Driver.navigate(PropertiesHelper.getPropValue("profile.url"));
-		loadPage();
+		loadPageObject();
 		initApiData();
 	}
 

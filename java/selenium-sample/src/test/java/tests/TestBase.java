@@ -33,7 +33,7 @@ public class TestBase extends TestClass {
 		Driver.setTimeOut(Constants.SHORT_TIME);
 		Driver.maximizeBrowser();
 		Driver.navigate(PropertiesHelper.getPropValue("profile.url"));
-		loadPage();
+		loadPageObject();
 	}
 
 	

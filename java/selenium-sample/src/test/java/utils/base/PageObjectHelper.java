@@ -90,7 +90,7 @@ class PageObjectHelper {
 		return oPage;
 	}
 
-	public static void loadPage(Object testClass) {
+	public static void loadPageObject (Object testClass) {
 		Field[] lstField = testClass.getClass().getDeclaredFields();
 		
 		for (Field field : lstField) {
