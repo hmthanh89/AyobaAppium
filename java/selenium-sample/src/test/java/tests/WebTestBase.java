@@ -16,13 +16,13 @@ import api.JIRA.functions.IssueTypeFunc;
 import api.JIRA.functions.PriorityFunc;
 import data.JIRA.Enums.IssueType;
 import data.JIRA.Enums.Priority;
-import utils.base.TestClass;
+import utils.base.PageObjectHelper;
 import utils.common.Constants;
 import utils.config.ModuleFactory;
 import utils.helper.PropertiesHelper;
 
 @Guice(modules = ModuleFactory.class)
-public class WebTestBase extends TestClass {
+public class WebTestBase {
 
 	@Parameters({ "browser", "autoLogBug", "platform" })
 	@BeforeMethod(alwaysRun = true)
@@ -38,7 +38,7 @@ public class WebTestBase extends TestClass {
 		Driver.setTimeOut(Constants.SHORT_TIME);
 		Driver.maximizeBrowser();
 		Driver.navigate(PropertiesHelper.getPropValue("profile.url"));
-		loadPageObject();
+		PageObjectHelper.loadPageObject(this);
 		initApiData();
 	}
 

@@ -15,7 +15,7 @@ import com.logigear.driver.manager.Driver;
 
 import utils.helper.JsonHelper;
 
-class PageObjectHelper {
+public class PageObjectHelper {
 
 	private static Logger oLog = Logger.getLogger(PageObjectHelper.class);
 	private static Map<String, List<Control>> mPageControls = new HashMap<String, List<Control>>();

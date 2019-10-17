@@ -17,14 +17,14 @@ import data.JIRA.Issue;
 import pages.JIRA.CreateIssuePage.CreateIssuePage;
 import pages.JIRA.GeneralPage.GeneralPage;
 import pages.JIRA.LoginPage.LoginPage;
-import tests.TestBase;
+import tests.WebTestBase;
 import utils.common.Common;
 import utils.common.Constants;
 import utils.common.Util;
 import utils.helper.Logger;
 import utils.integration.Bug;
 
-public class CreateIssueTest extends TestBase {
+public class CreateIssueTest extends WebTestBase {
 	
 	LoginPage loginPage;
 	CreateIssuePage createIssuePage;

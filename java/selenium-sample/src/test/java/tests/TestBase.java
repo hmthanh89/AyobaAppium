@@ -11,13 +11,13 @@ import org.testng.annotations.Parameters;
 
 import com.logigear.driver.manager.Driver;
 
-import utils.base.TestClass;
+import utils.base.PageObjectHelper;
 import utils.common.Constants;
 import utils.config.ModuleFactory;
 import utils.helper.PropertiesHelper;
 
 @Guice(modules = ModuleFactory.class)
-public class TestBase extends TestClass {
+public class TestBase {
 
 	@Parameters({ "browser", "autoLogBug", "platform" })
 	@BeforeMethod(alwaysRun = true)
@@ -33,7 +33,7 @@ public class TestBase extends TestClass {
 		Driver.setTimeOut(Constants.SHORT_TIME);
 		Driver.maximizeBrowser();
 		Driver.navigate(PropertiesHelper.getPropValue("profile.url"));
-		loadPageObject();
+		PageObjectHelper.loadPageObject(this);
 	}
 
 	
