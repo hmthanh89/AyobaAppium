@@ -1,0 +1,79 @@
+[
+  {
+    "name": "txtSearchQuery",
+    "type": "TextBox",
+    "locators": [
+      "_._://input[@id='searcher-query']"
+    ]
+  },
+  {
+    "name": "txtSummaryVal",
+    "type": "TextBox",
+    "locators": [
+      "_._://h1[@id='summary-val']"
+    ]
+  },
+  {
+    "name": "btnSearch",
+    "type": "Button",
+    "locators": [
+      "_._://button[contains(@class,'search-button')]"
+    ]
+  },
+  {
+    "name": "cmbWorkflow",
+    "type": "ComboBox",
+    "locators": [
+      "_._://span[@class='dropdown-text' and text()='Workflow']"
+    ]
+  },
+  {
+    "name": "IssueStatus",
+    "type": "Element",
+    "locators": [
+      "_._://span[@id='status-val']/span"
+    ]
+  },
+  {
+    "name": "issueList",
+    "type": "Element",
+    "locators": [
+      "_._://div[@class='issue-list']/li"
+    ]
+  },
+  {
+    "name": "eleLoading",
+    "type": "Element",
+    "locators": [
+      "_._://div[@class='loading']"
+    ]
+  },
+  {
+    "name": "eleIssueID",
+    "type": "Element",
+    "locators": [
+      "_._://a[@id='key-val']"
+    ]
+  },
+  {
+    "name": "lnkModeBasic",
+    "type": "Link",
+    "locators": [
+      "_._://span[@class='mode-switcher']/a[@data-id='advanced']"
+    ]
+  },
+  {
+    "name": "lblTitleSearch",
+    "type": "Label",
+    "locators": [
+      "_._://h1[@class='search-title']"
+    ]
+  },
+  {
+    "name": "lblIssueHeader",
+    "type": "Label",
+    "locators": [
+      "_._://div[@id='issue-content']/header//h1"
+    ]
+  }
+]

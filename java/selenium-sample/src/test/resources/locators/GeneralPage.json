@@ -1,0 +1,30 @@
+[
+  {
+    "name": "logoJira",
+    "type": "Element",
+    "locators": [
+      "_._://h1[@id='logo']//img"
+    ]
+  },
+  {
+    "name": "popupSuccess",
+    "type": "Element",
+    "locators": [
+      "_._://div[@class='aui-flag']/div[contains(@class,'aui-message')]"
+    ]
+  },
+    {
+    "name": "formCreateIssue",
+    "type": "Element",
+    "locators": [
+      "_._://div[@id='create-issue-dialog']"
+    ]
+  },
+    {
+    "name": "btnCreateIssue",
+    "type": "Button",
+    "locators": [
+      "_._://a[@id='create_link']"
+    ]
+  }
+]

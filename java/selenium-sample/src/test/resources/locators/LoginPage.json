@@ -1,0 +1,23 @@
+[
+  {
+    "name": "txtUsername",
+    "type": "TextBox",
+    "locators": [
+      "_._://input[@id='login-form-username']"
+    ]
+  },
+  {
+    "name": "txtPassword",
+    "type": "TextBox",
+    "locators": [
+      "_._://input[@id='login-form-password']"
+    ]
+  },
+  {
+    "name": "btnLogin",
+    "type": "Button",
+    "locators": [
+      "_._://input[@id='login-form-submit']|//input[@id='login']"
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "issueType",
+    "type": "JiraSelect",
+    "locators": [
+      "_._://input[@id='issuetype-field']"
+    ]
+  },
+   {
+    "name": "priority",
+    "type": "JiraSelect",
+    "locators": [
+      "_._://input[@id='priority-field']"
+    ]
+  },
+  {
+    "name": "eleLoading",
+    "type": "Element",
+    "locators": [
+      "_._://div[@class='buttons']//span[contains(@class,'loading')]']"
+    ]
+  },
+  {
+    "name": "txtProject",
+    "type": "TextBox",
+    "locators": [
+      "_._://div[@id='project-single-select']/input[@id='project-field']"
+    ]
+  },
+  {
+    "name": "txtSummary",
+    "type": "TextBox",
+    "locators": [
+      "_._://div[@class='content']//input[@id='summary']"
+    ]
+  },
+  {
+    "name": "projectDropdown",
+    "type": "Button",
+    "locators": [
+      "_._://div[@id='project-single-select']//span[contains(@class,'drop-menu')]"
+    ]
+  },
+  {
+    "name": "btnCreate",
+    "type": "Button",
+    "locators": [
+      "_._://div[@class='buttons']//input[@id='create-issue-submit']"
+    ]
+  }
+]
