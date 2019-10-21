@@ -93,6 +93,9 @@ public class ControlFactory {
 			return null;
 		}
 		
+		if (sPage.contains("_"))
+			sPage = sPage.split("_")[0];
+		
 		List<Control> lst =null;
 		if (PageObjectHelper.loadPageControl(sPage)) lst = PageObjectHelper.getPageControls(sPage);
 		if (lst==null) oLog.debug(String.format("%s page control is empty", sPage));

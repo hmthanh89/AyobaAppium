@@ -7,12 +7,11 @@ import pages.JIRA.GeneralPage.GeneralPage;
 
 public class LoginPage extends GeneralPage {
 	
-	private TextBox txtUsername = $(TextBox.class, "txtUsername");
-	private TextBox txtPassword = $(TextBox.class, "txtPassword");
-	private Button btnLogin = $(Button.class, "btnLogin");
+	protected TextBox txtUsername = $(TextBox.class, "txtUsername");
+	protected TextBox txtPassword = $(TextBox.class, "txtPassword");
+	protected Button btnLogin = $(Button.class, "btnLogin");
 	
 	public void login(String username, String password) {
-		
 		txtUsername.waitForDisplay();
 		txtUsername.enter(username);
 		txtPassword.enter(password);

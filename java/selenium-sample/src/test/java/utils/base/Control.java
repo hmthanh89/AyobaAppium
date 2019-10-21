@@ -1,6 +1,7 @@
 package utils.base;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.logigear.driver.manager.Driver;
 
@@ -48,15 +49,15 @@ class Control {
 		String sKey3 = String.format("_.%s", platform);
 		String sKey4 = "_._";
 
-		String oVal = locators.stream().filter(s -> s.startsWith(sKey1)).findFirst().get();
-		if (oVal.isEmpty())
-			oVal = locators.stream().filter(s -> s.startsWith(sKey2)).findFirst().get();
-		if (oVal.isEmpty())
-			oVal = locators.stream().filter(s -> s.startsWith(sKey3)).findFirst().get();
-		if (oVal.isEmpty())
-			oVal = locators.stream().filter(s -> s.startsWith(sKey4)).findFirst().get();
+		Optional<String> oVal = locators.stream().filter(s -> s.startsWith(sKey1)).findFirst();
+		if (oVal.equals(Optional.empty()))
+			oVal = locators.stream().filter(s -> s.startsWith(sKey2)).findFirst();
+		if (oVal.equals(Optional.empty()))
+			oVal = locators.stream().filter(s -> s.startsWith(sKey3)).findFirst();
+		if (oVal.equals(Optional.empty()))
+			oVal = locators.stream().filter(s -> s.startsWith(sKey4)).findFirst();
 
-		return oVal.isEmpty() ? "" : oVal.split(":")[1];
+		return oVal.equals(Optional.empty()) ? "" : oVal.get().split(":")[1];
 	}
 
 	public void setLocator(String sName, String sValue) {

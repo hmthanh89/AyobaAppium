@@ -7,13 +7,13 @@ import utils.base.PageFactory;
 
 public class GeneralPage extends PageFactory {
 	
-	private String xpathSubSection = new String("//ul[@class='aui-list-truncate']/li/a[text()='%s']");
-	private String xpathMainSection = new String("//ul[@class='aui-nav']/li/a[text()='%s']");
+	protected String xpathSubSection = new String("//ul[@class='aui-list-truncate']/li/a[text()='%s']");
+	protected String xpathMainSection = new String("//ul[@class='aui-nav']/li/a[text()='%s']");
 	
-	private Element logoJira = $(Element.class, "GeneralPage.logoJira");
-	public Element popupSuccess = $(Element.class, "GeneralPage.popupSuccess");
-	public Element formCreateIssue = $(Element.class, "GeneralPage.formCreateIssue");
-	public Button btnCreateIssue = $(Button.class, "GeneralPage.btnCreateIssue");
+	protected Element logoJira = $(Element.class, "GeneralPage.logoJira");
+	protected Element popupSuccess = $(Element.class, "GeneralPage.popupSuccess");
+	protected Element formCreateIssue = $(Element.class, "GeneralPage.formCreateIssue");
+	protected Button btnCreateIssue = $(Button.class, "GeneralPage.btnCreateIssue");
 	
 	public void goToPage(String menuPath) {
 		if (menuPath.contains("/")) {

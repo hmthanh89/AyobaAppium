@@ -12,20 +12,20 @@ import utils.common.Constants;
 import utils.custom.JiraSelect;
 
 public class CreateIssuePage extends GeneralPage {
-	private String xpathSeclectionProject = "//div[@id='project-suggestions']//a/em[text()='%s']";
+	protected String xpathSeclectionProject = "//div[@id='project-suggestions']//a/em[text()='%s']";
 
-	private JiraSelect issueType = $(JiraSelect.class, "issueType");
-	private JiraSelect priority = $(JiraSelect.class, "priority");
+	protected JiraSelect issueType = $(JiraSelect.class, "issueType");
+	protected JiraSelect priority = $(JiraSelect.class, "priority");
 	
-	private Element eleLoading = $(Element.class, "eleLoading");
+	protected Element eleLoading = $(Element.class, "eleLoading");
 			
-	private TextBox txtProject = $(TextBox.class, "txtProject");
-	private TextBox txtSummary = $(TextBox.class, "txtSummary");
+	protected TextBox txtProject = $(TextBox.class, "txtProject");
+	protected TextBox txtSummary = $(TextBox.class, "txtSummary");
 		
-	private Button projectDropdown = $(Button.class, "projectDropdown");
-	private Button btnCreate = $(Button.class, "btnCreate");
+	protected Button projectDropdown = $(Button.class, "projectDropdown");
+	protected Button btnCreate = $(Button.class, "btnCreate");
 	
-	private String path  = "Issues/Reported by Me";
+	protected String path  = "Issues/Reported by Me";
 	
 	public CreateIssuePage(){
 		super();

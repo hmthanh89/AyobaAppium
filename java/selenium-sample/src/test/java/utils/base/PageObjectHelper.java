@@ -77,7 +77,7 @@ public class PageObjectHelper {
 		try {
 			try {
 				String sPlatform = Driver.getDriverProperty().getPlatform();
-				String sPageClass = String.format("%s_%s", oType.getSimpleName(), sPlatform.toUpperCase());
+				String sPageClass = String.format("%s.%s_%s", oType.getPackage().getName(), oType.getSimpleName(), sPlatform.toUpperCase());
 				oLog.debug("NewInstance for " + sPageClass);
 
 				oPage = (T) Class.forName(sPageClass).newInstance();

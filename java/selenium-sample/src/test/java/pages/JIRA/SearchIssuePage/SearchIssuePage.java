@@ -13,20 +13,20 @@ import utils.common.Constants;
 
 public class SearchIssuePage extends GeneralPage {
 
-	private TextBox txtSearchQuery = $(TextBox.class, "txtSearchQuery");
-	private TextBox txtSummaryVal = $(TextBox.class, "txtSummaryVal");
-	private Button btnSearch = $(Button.class, "btnSearch");
-	private ComboBox cmbWorkflow = $(ComboBox.class, "cmbWorkflow");
-	private Element issueStatus =$(Element.class, "issueStatus");
-	private Element issueList = $(Element.class, "issueList");
-	private Element eleLoading = $(Element.class, "eleLoading");
-	private Element eleIssueID = $(Element.class, "eleIssueID");
-	private Link lnkModeBasic = $(Link.class, "lnkModeBasic");
-	private Label lblTitleSearch = $(Label.class, "lblTitleSearch");
-	private Label lblIssueHeader = $(Label.class, "lblIssueHeader");
+	protected TextBox txtSearchQuery = $(TextBox.class, "txtSearchQuery");
+	protected TextBox txtSummaryVal = $(TextBox.class, "txtSummaryVal");
+	protected Button btnSearch = $(Button.class, "btnSearch");
+	protected ComboBox cmbWorkflow = $(ComboBox.class, "cmbWorkflow");
+	protected Element issueStatus =$(Element.class, "issueStatus");
+	protected Element issueList = $(Element.class, "issueList");
+	protected Element eleLoading = $(Element.class, "eleLoading");
+	protected Element eleIssueID = $(Element.class, "eleIssueID");
+	protected Link lnkModeBasic = $(Link.class, "lnkModeBasic");
+	protected Label lblTitleSearch = $(Label.class, "lblTitleSearch");
+	protected Label lblIssueHeader = $(Label.class, "lblIssueHeader");
 	
-	private String xpathIssueSummary = "//table[@id='issuetable']//td[@class='nav summary']//a[text()='%s']";
-	private String xpathChangeIssueStatus = "//span[@class='trigger-label' and text()='%s']";
+	protected String xpathIssueSummary = "//table[@id='issuetable']//td[@class='nav summary']//a[text()='%s']";
+	protected String xpathChangeIssueStatus = "//span[@class='trigger-label' and text()='%s']";
 
 	public void searchBySummary(String summaryContent) {
 		lblTitleSearch.waitForDisplay();
