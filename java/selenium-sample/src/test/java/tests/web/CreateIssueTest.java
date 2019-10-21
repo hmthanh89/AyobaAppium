@@ -57,9 +57,9 @@ public class CreateIssueTest extends WebTestBase {
 		String[] issueTypes = new String[data.size() - 1];
 		String[] priorities = new String[data.size() - 1];
 
-		for (int i=0;i<data.size()-1;i++) {
-			issueTypes[i] = data.get(i+1)[0].toUpperCase().replace(" ", "_");
-			priorities[i] = data.get(i+1)[1].toUpperCase();
+		for (int i=1;i<data.size()-1;i++) {
+			issueTypes[i] = data.get(i)[0].toUpperCase().replace(" ", "_");
+			priorities[i] = data.get(i)[1].toUpperCase();
 		}
 		
 		List<List<Object>> combinedData = Util.combineData(Arrays.asList(
