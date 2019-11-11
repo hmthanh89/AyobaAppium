@@ -3,8 +3,8 @@ using FluentAssertions.Execution;
 using NUnit.Framework;
 using SeleniumCSharp.Core.Utilities;
 using SeleniumTests.DataObject;
-using SeleniumTests.DI;
 using SeleniumTests.PageObject.Login;
+using SeleniumTests.Utilities;
 
 namespace SeleniumTests.Tests
 {
@@ -13,9 +13,8 @@ namespace SeleniumTests.Tests
     public class TrelloLoginTest : TestBase
     {
 
-        private readonly ITrelloLoginPage trelloLoginPage = Inject.Resolve<ITrelloLoginPage>();
+        private readonly TrelloLoginPage trelloLoginPage = PageFactory.Get<TrelloLoginPage>();
         private readonly LoginData loginData = JsonParser.Get<LoginData>();
-
 
         [Test]
         [Category("Smoke")]

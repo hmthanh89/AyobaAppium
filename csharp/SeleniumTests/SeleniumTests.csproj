@@ -133,10 +133,9 @@
     <Compile Include="APITests\GetEmployeesTests.cs" />
     <Compile Include="Customization.cs" />
     <Compile Include="DataObject\LoginData.cs" />
-    <Compile Include="DI\Inject.cs" />
-    <Compile Include="PageObject\Login\ITrelloLoginPage.cs" />
-    <Compile Include="PageObject\Login\TrelloLoginPageQA.cs" />
-    <Compile Include="PageObject\Login\TrelloLoginPageDEV.cs" />
+    <Compile Include="PageObject\Login\TrelloLoginPage.cs" />
+    <Compile Include="PageObject\Login\TrelloLoginPageDesk.cs" />
+    <Compile Include="PageObject\Login\TrelloLoginPageMobile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -151,6 +150,7 @@
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Utilities\ExtentManager.cs" />
     <Compile Include="Utilities\ExtentTestManager.cs" />
+    <Compile Include="Utilities\PageFactory.cs" />
     <Compile Include="Utilities\TestContextInfo.cs" />
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
@@ -205,14 +205,14 @@
     <Error Condition="!Exists('..\packages\ReportPortal.Shared.2.1.4\build\ReportPortal.Shared.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.Shared.2.1.4\build\ReportPortal.Shared.targets'))" />
     <Error Condition="!Exists('..\packages\ReportPortal.NUnit.3.7.0\build\ReportPortal.NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.NUnit.3.7.0\build\ReportPortal.NUnit.props'))" />
     <Error Condition="!Exists('..\packages\ReportPortal.NUnit.3.7.0\build\ReportPortal.NUnit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ReportPortal.NUnit.3.7.0\build\ReportPortal.NUnit.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.24.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.24.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.24.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.24.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets'))" />    
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.78.0.3904.7000\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.78.0.3904.7000\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
   <Import Project="..\packages\ReportPortal.Client.2.1.10\build\ReportPortal.Client.targets" Condition="Exists('..\packages\ReportPortal.Client.2.1.10\build\ReportPortal.Client.targets')" />
   <Import Project="..\packages\ReportPortal.Shared.2.1.4\build\ReportPortal.Shared.targets" Condition="Exists('..\packages\ReportPortal.Shared.2.1.4\build\ReportPortal.Shared.targets')" />
   <Import Project="..\packages\ReportPortal.NUnit.3.7.0\build\ReportPortal.NUnit.targets" Condition="Exists('..\packages\ReportPortal.NUnit.3.7.0\build\ReportPortal.NUnit.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.24.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.24.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.24.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.24.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" /> 
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.78.0.3904.7000\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.78.0.3904.7000\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

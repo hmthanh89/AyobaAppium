@@ -130,12 +130,15 @@ namespace SeleniumCSharp.Core.Helpers
         public void GetBrowserLog()
         {
             var logs = DriverUtils.GetBrowserLog();
-            foreach (var log in logs)
+            if (logs != null)
             {
-                if (log.Level != LogLevel.Severe) continue;
-                Info($"[URL]: {DriverUtils.CurrentUrl()}", false);
-                Info($"[BROWSER LOG]: {log.Message}", false);
-                ExtentTest?.Info(MarkupHelper.CreateCodeBlock(log.Message));
+                foreach (var log in logs)
+                {
+                    if (log.Level != LogLevel.Severe) continue;
+                    Info($"[URL]: {DriverUtils.CurrentUrl()}", false);
+                    Info($"[BROWSER LOG]: {log.Message}", false);
+                    ExtentTest?.Info(MarkupHelper.CreateCodeBlock(log.Message));
+                }
             }
         }
     }
