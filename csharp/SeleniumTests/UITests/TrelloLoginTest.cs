@@ -12,8 +12,11 @@ namespace SeleniumTests.Tests
     [Parallelizable(ParallelScope.Fixtures)]
     public class TrelloLoginTest : TestBase
     {
+        [PageObject]
+        private TrelloLoginPage trelloLoginPageObject;
 
         private readonly TrelloLoginPage trelloLoginPage = PageFactory.Get<TrelloLoginPage>();
+       
         private readonly LoginData loginData = JsonParser.Get<LoginData>();
 
         [Test]
@@ -35,7 +38,7 @@ namespace SeleniumTests.Tests
         public void Login_EmptyUser()
         {
             Log.Info("1. Login with empty user");
-            trelloLoginPage.Login(null, loginData.ValidPassword);
+            trelloLoginPageObject.Login(null, loginData.ValidPassword);
             Log.Info("2. Verify that error message should display");
             var testString = "ACDDDDDDB";
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,5 +22,15 @@ namespace SeleniumTests.Utilities
             return (T)Activator.CreateInstance(type);
         }
 
+
+        public static void InitialPageObjects(object obj)
+        {
+            FieldInfo[] fields = obj.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance).Where(x => x.GetCustomAttributes(typeof(PageObjectAttribute), true).Length > 0).ToArray();
+            foreach (var field in fields)
+            {
+                string fullName = field.FieldType.FullName + Config.Env;
+                field.SetValue(obj, Activator.CreateInstance(Type.GetType(fullName)));
+            }                    
+        }
     }
 }

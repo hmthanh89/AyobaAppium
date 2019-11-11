@@ -18,7 +18,7 @@ namespace SeleniumTests.Tests
         [SetUp]
         public void SetUp()
         {
-            Config.SetUIEnvVariables();            
+            Config.SetUIEnvVariables();
             //Create extent test                  
             extentTest = ExtentTestManager.StartTest(TestContextInfo.TestName, TestContextInfo.Description,
                 TestContextInfo.Categories);
@@ -37,6 +37,9 @@ namespace SeleniumTests.Tests
                 Config.Driver));
             DriverUtils.Maximize();
             DriverUtils.GoToUrl(Config.Url);
+
+            //Initial page objects
+            PageFactory.InitialPageObjects(this);
         }
 
         [TearDown]
@@ -66,7 +69,7 @@ namespace SeleniumTests.Tests
                 extentTest.Error(e);
             }
 
-            Log.EndTest();            
+            Log.EndTest();
         }
 
         protected Logger Log { get; set; }
