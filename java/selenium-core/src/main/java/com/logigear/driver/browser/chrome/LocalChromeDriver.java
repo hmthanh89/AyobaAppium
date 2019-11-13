@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import com.logigear.driver.DriverProperty;
 import com.logigear.driver.manager.BaseDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class LocalChromeDriver extends BaseDriver {
 
 	public LocalChromeDriver(DriverProperty property) {
@@ -14,7 +16,7 @@ public class LocalChromeDriver extends BaseDriver {
 
 	@Override
 	public void createWebDriver() {
-		System.setProperty("webdriver.chrome.driver", property.getDriverExecutable());
+		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions ops = new ChromeOptions();
 

@@ -1,7 +1,7 @@
 package protocol;
 
-import api_object.RequestMessage;
-import api_object.ResponseMessage;
+import api.object.RequestMessage;
+import api.object.ResponseMessage;
 
 public interface IProtocol {
 	

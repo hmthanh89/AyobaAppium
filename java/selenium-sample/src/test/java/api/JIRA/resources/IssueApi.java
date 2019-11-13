@@ -1,6 +1,7 @@
 package api.JIRA.resources;
 
-import api_object.RequestMessage;
+
+import api.object.RequestMessage;
 import io.restassured.response.Response;
 
 public class IssueApi extends BaseResource {

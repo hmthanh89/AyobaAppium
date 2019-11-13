@@ -1,8 +1,8 @@
 package protocol;
 
-import api_object.Authentication;
-import api_object.RequestMessage;
-import api_object.ResponseMessage;
+import api.object.Authentication;
+import api.object.RequestMessage;
+import api.object.ResponseMessage;
 
 public class BaseProtocol<T> extends Object {
 	

@@ -6,6 +6,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import com.logigear.driver.DriverProperty;
 import com.logigear.driver.manager.BaseDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class LocalFirefoxDriver extends BaseDriver {
 
 	public LocalFirefoxDriver(DriverProperty property) {
@@ -14,7 +16,7 @@ public class LocalFirefoxDriver extends BaseDriver {
 
 	@Override
 	public void createWebDriver() {
-		System.setProperty("webdriver.gecko.driver", property.getDriverExecutable());
+		WebDriverManager.firefoxdriver().setup();
 		FirefoxOptions ops = new FirefoxOptions();
 		
 		ops.addArguments(property.getArguments());

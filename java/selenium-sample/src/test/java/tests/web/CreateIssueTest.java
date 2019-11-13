@@ -22,7 +22,6 @@ import utils.common.Common;
 import utils.common.Constants;
 import utils.common.Util;
 import utils.helper.Logger;
-import utils.integration.Bug;
 
 public class CreateIssueTest extends WebTestBase {
 	
