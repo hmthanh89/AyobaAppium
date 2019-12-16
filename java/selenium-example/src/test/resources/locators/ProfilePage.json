@@ -1,0 +1,23 @@
+[
+	{
+		"name": "btnAdd",
+		"type": "Button",
+		"locators": [
+			"_._://button[@aria-label='Profile actions overflow']"
+		]
+	},
+	{
+		"name": "eleCreateBoard",
+		"type": "Element",
+		"locators": [
+			"_._://div[@title='Create board']"
+		]
+	},
+	{
+		"name": "eleCreatePin",
+		"type": "Element",
+		"locators": [
+			"_._://div[@title='Create Pin']"
+		]
+	}
+]

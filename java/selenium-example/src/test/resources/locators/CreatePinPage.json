@@ -1,0 +1,44 @@
+[
+	{
+		"name": "txtPinName",
+		"type": "TextBox",
+		"locators": [
+			"_._://textarea[contains(@id,'pin-draft-title')]"
+		]
+	},
+	{
+		"name": "txtPinDescription",
+		"type": "TextBox",
+		"locators": [
+			"_._://textarea[contains(@id,'pin-draft-description')]"
+		]
+	},
+	{
+		"name": "txtPinLink",
+		"type": "TextBox",
+		"locators": [
+			"_._://textarea[contains(@id,'pin-draft-link')]"
+		]
+	},
+	{
+		"name": "txtPinUpload",
+		"type": "TextBox",
+		"locators": [
+			"_._://input[@id='media-upload-input']"
+		]
+	},
+	{
+		"name": "btnSave",
+		"type": "Button",
+		"locators": [
+			"_._://button[@data-test-id='board-dropdown-save-button']"
+		]
+	},
+	{
+		"name": "btnSeeItNow",
+		"type": "Button",
+		"locators": [
+			"_._://div[@data-test-id='seeItNow']//button"
+		]
+	}
+]

@@ -1,0 +1,23 @@
+[
+	{
+		"name": "txtEmail",
+		"type": "TextBox",
+		"locators": [
+			"_._://input[@id='email']"
+		]
+	},
+	{
+		"name": "txtPassword",
+		"type": "TextBox",
+		"locators": [
+			"_._://input[@id='password']"
+		]
+	},
+	{
+		"name": "btnLogin",
+		"type": "Button",
+		"locators": [
+			"_._://button[contains(@class,'SignupButton')]"
+		]
+	}
+]
