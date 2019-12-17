@@ -1,13 +1,19 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.logigear</groupId>
-  <artifactId>selenium-sample</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <packaging>jar</packaging>
-  <name>selenium-sample</name>
-  
-  <build>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.logigear</groupId>
+	<artifactId>selenium-sample</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>jar</packaging>
+	<name>selenium-sample</name>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<build>
 		<directory>target</directory>
 		<outputDirectory>target/classes</outputDirectory>
 		<finalName>${project.artifactId}-${project.version}</finalName>
@@ -109,7 +115,7 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/test/resources/libs/selenium-core-0.0.1-SNAPSHOT.jar</systemPath>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.logigear</groupId>
 			<artifactId>restful-api</artifactId>
@@ -117,7 +123,7 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/test/resources/libs/restful-api-0.0.1-SNAPSHOT.jar</systemPath>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-io</artifactId>
@@ -149,6 +155,11 @@
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>3.1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>3.7.1</version>
 		</dependency>
 		<dependency>
 			<!-- JRJC is distributed under the Apache 2.0 license. -->

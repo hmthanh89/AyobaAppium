@@ -19,6 +19,7 @@ namespace SeleniumTests.Utilities
             Driver = GetString("Driver");
             Env = GetString("Env");
             ApiUrl = string.Format(GetString("ApiUrl"), Env);
+            Url = GetString("Url");
         }
 
         public static void SetAPIEnvVariables()

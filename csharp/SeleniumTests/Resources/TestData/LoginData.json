@@ -4,5 +4,5 @@
 	"validUser": "imvalid",
 	"validPassword": "imvalid",
 	"invalidEmailErrorMessage": "There isn't an account for this username",
-	"emptyEmailErrorMessage": "Empty email"
+	"emptyEmailErrorMessage": "Missing email"
 }

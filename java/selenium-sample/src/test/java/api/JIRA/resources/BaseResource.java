@@ -1,7 +1,8 @@
 package api.JIRA.resources;
 
 import utils.helper.PropertiesHelper;
-import web_server.WebAPI;
+import web.server.WebAPI;
+
 
 public class BaseResource {
 

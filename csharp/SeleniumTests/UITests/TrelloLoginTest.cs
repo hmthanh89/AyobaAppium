@@ -3,8 +3,8 @@ using FluentAssertions.Execution;
 using NUnit.Framework;
 using SeleniumCSharp.Core.Utilities;
 using SeleniumTests.DataObject;
-using SeleniumTests.DI;
 using SeleniumTests.PageObject.Login;
+using SeleniumTests.Utilities;
 
 namespace SeleniumTests.Tests
 {
@@ -12,10 +12,12 @@ namespace SeleniumTests.Tests
     [Parallelizable(ParallelScope.Fixtures)]
     public class TrelloLoginTest : TestBase
     {
+        [PageObject]
+        private TrelloLoginPage trelloLoginPageObject;
 
-        private readonly ITrelloLoginPage trelloLoginPage = Inject.Resolve<ITrelloLoginPage>();
+        private readonly TrelloLoginPage trelloLoginPage = PageFactory.Get<TrelloLoginPage>();
+       
         private readonly LoginData loginData = JsonParser.Get<LoginData>();
-
 
         [Test]
         [Category("Smoke")]
@@ -36,7 +38,7 @@ namespace SeleniumTests.Tests
         public void Login_EmptyUser()
         {
             Log.Info("1. Login with empty user");
-            trelloLoginPage.Login(null, loginData.ValidPassword);
+            trelloLoginPageObject.Login(null, loginData.ValidPassword);
             Log.Info("2. Verify that error message should display");
             var testString = "ACDDDDDDB";
 

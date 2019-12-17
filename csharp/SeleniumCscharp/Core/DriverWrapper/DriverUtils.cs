@@ -79,7 +79,7 @@ namespace SeleniumCSharp.Core.DriverWrapper
                     _DRIVER.Value.SetWebDriver(key, driverManager.GetWebDriver(key));
                 }
 
-                var driverKey = new Key {Name = key};
+                var driverKey = new Key { Name = key };
                 _DRIVER_KEY.Value = driverKey;
             }
             else
@@ -199,7 +199,7 @@ namespace SeleniumCSharp.Core.DriverWrapper
         /// </summary>
         public static IJavaScriptExecutor GetJsExecutor()
         {
-            return (IJavaScriptExecutor) GetDriver();
+            return (IJavaScriptExecutor)GetDriver();
         }
 
         /// <summary>
@@ -228,7 +228,19 @@ namespace SeleniumCSharp.Core.DriverWrapper
 
         public static ReadOnlyCollection<LogEntry> GetBrowserLog()
         {
-            return GetDriver().Manage().Logs.GetLog(LogType.Browser);
+            ILogs log = GetDriver().Manage().Logs;
+            try
+            {
+                if (log != null)
+                {
+                    return log.GetLog(LogType.Browser);
+                }
+            }
+            catch (Exception)
+            {
+                //TODO
+            }
+            return null;
         }
     }
 }

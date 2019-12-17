@@ -1,13 +1,8 @@
 package com.logigear.driver.manager;
 
 import java.io.File;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 import org.apache.commons.io.FileUtils;
@@ -21,10 +16,6 @@ import org.openqa.selenium.WebDriver.TargetLocator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.logigear.driver.DriverProperty;
-import com.logigear.driver.RunningMode;
-import com.logigear.helper.BrowserSettingHelper;
 
 public class Driver extends DriverManager {
 	private static Logger logger = Logger.getLogger(Driver.class);

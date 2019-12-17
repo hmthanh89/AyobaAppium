@@ -25,7 +25,7 @@ namespace SeleniumCSharp.Core.Helpers
             maps.Add(key, value);
         }
 
-        public Dictionary<string, string> maps;
+        private Dictionary<string, string> maps;
         private JObject selectors;
 
         private Locator()

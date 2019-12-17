@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.WebDriver;
 
+import com.google.common.base.Throwables;
 import com.logigear.driver.DriverProperty;
 import com.logigear.driver.RunningMode;
 import com.logigear.helper.BrowserSettingHelper;
@@ -112,6 +113,7 @@ public class DriverManager {
 }
 
 class DriverFactory {
+	private static Logger logger = Logger.getLogger(DriverFactory.class);
 
 	private static final String BROWSER_PACKAGE_NAME = "com.logigear.driver.browser.%s";
 	private static final String BROWSER_CLASS_NAME = "%s%sDriver";
@@ -134,7 +136,7 @@ class DriverFactory {
 			method.invoke(obj);
 			return (BaseDriver) obj;
 		} catch (Exception e) {
-			System.out.println("Could not create new Driver instance. " + e.getMessage());
+			logger.error("Could not create new Driver instance. " + Throwables.getStackTraceAsString(e));
 			return null;
 		}
 	}

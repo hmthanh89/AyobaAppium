@@ -6,6 +6,8 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import com.logigear.driver.DriverProperty;
 import com.logigear.driver.manager.BaseDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class LocalIEDriver extends BaseDriver {
 
 	public LocalIEDriver(DriverProperty property) {
@@ -14,7 +16,7 @@ public class LocalIEDriver extends BaseDriver {
 
 	@Override
 	public void createWebDriver() {
-		System.setProperty("webdriver.ie.driver", property.getDriverExecutable());
+		WebDriverManager.iedriver().arch32().setup();
 		InternetExplorerOptions ops = new InternetExplorerOptions();
 		
 		ops.merge(property.getCapabilities());
