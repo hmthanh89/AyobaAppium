@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.WebDriver;
 
 import com.google.common.base.Throwables;
@@ -60,8 +61,15 @@ public class DriverManager {
 
 		BaseDriver driver = DriverFactory.newInstance(tmpProperty.get());
 
-		if (!isKeyExist(key))
+		if (isKeyExist(key)) {
+			try {
+				Driver.getDriver().getTitle();
+			} catch (NoSuchSessionException ex) {
+				DRIVER.get().put(key, driver);
+			}
+		} else {
 			DRIVER.get().put(key, driver);
+		}
 	}
 
 	public static void initDriver() {

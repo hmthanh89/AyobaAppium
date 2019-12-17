@@ -1,0 +1,9 @@
+[
+	{
+		"name": "eleProfile",
+		"type": "Element",
+		"locators": [
+			"_._://div[@aria-label='Saved']"
+		]
+	}
+]
