@@ -113,15 +113,15 @@ public class DriverManager {
 }
 
 class DriverFactory {
-	private static Logger logger = Logger.getLogger(DriverFactory.class);
-
-	private static final String BROWSER_PACKAGE_NAME = "com.logigear.driver.browser.%s";
+	private static Logger logger = Logger.getLogger(DriverFactory.class);	
+	
+	private static final String BROWSER_PACKAGE_NAME = "com.logigear.driver.%s.%s";
 	private static final String BROWSER_CLASS_NAME = "%s%sDriver";
 
 	public static BaseDriver newInstance(DriverProperty property) {
 
 		RunningMode mode = property.getMode();
-		String packageName = String.format(BROWSER_PACKAGE_NAME, property.getDriverType().toString().toLowerCase());
+		String packageName = String.format(BROWSER_PACKAGE_NAME, property.getProvider().toString().toLowerCase(),property.getDriverType().toString().toLowerCase());
 		String className = String.format(BROWSER_CLASS_NAME, mode, property.getDriverType().toString());
 
 		try {

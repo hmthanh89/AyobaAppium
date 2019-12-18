@@ -18,6 +18,7 @@ public class DriverProperty {
 	private RunningMode mode;
 	private DesiredCapabilities capabilities;
 	private List<String> arguments;
+	private String provider;
 
 	public DesiredCapabilities getCapabilities() {
 		return capabilities;
@@ -95,5 +96,13 @@ public class DriverProperty {
 	public void setBrowserName(String browserName) {
 		this.browserName = browserName;
 	}
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
 
 }
