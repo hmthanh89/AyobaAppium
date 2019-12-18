@@ -1,0 +1,37 @@
+[
+	{
+		"name": "txtBoardName",
+		"type": "TextBox",
+		"locators": [
+			"_._://input[@name='boardName']"
+		]
+	},
+	{
+		"name": "chkboxVisibility",
+		"type": "CheckBox",
+		"locators": [
+			"_._://input[@name='secret']"
+		]
+	},
+	{
+		"name": "btnCreate",
+		"type": "Button",
+		"locators": [
+			"_._://button[div='Create']"
+		]
+	},
+	{
+		"name": "btnDone",
+		"type": "Button",
+		"locators": [
+			"_._://button[div='Done']"
+		]
+	},
+	{
+		"name": "imgPins",
+		"type": "Image",
+		"locators": [
+			"_._://div[@class='pinWrapper']//img"
+		]
+	}
+]

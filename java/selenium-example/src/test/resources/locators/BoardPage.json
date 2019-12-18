@@ -1,0 +1,30 @@
+[
+	{
+		"name": "lblBoardName",
+		"type": "Label",
+		"locators": [
+			"_._://div[@class='boardHeaderWrapper']//h4"
+		]
+	},
+	{
+		"name": "imgPins",
+		"type": "Image",
+		"locators": [
+			"_._://div[@data-test-id='pinWrapper']//img"
+		]
+	},
+	{
+		"name": "btnAdd",
+		"type": "Button",
+		"locators": [
+			"_._://button[@aria-label='Board Actions']"
+		]
+	},
+	{
+		"name": "eleCreatePin",
+		"type": "Element",
+		"locators": [
+			"_._://div[@title='Create Pin']"
+		]
+	}
+]
