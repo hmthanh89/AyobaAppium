@@ -27,6 +27,7 @@ public class BrowserSettingHelper {
 			String remoteUrl = section.get("remoteUrl");
 			String capabilities = section.get("capabilities");
 			String args = section.get("arguments");
+			String provider = section.get("provider");
 			
 			property.setDriverExecutable(driverExecutable);
 			property.setDriverType(converStringToDriverType(driverType));
@@ -35,6 +36,7 @@ public class BrowserSettingHelper {
 			property.setMode(converStringToRunningMode(mode));
 			property.setCapabilities(addTestCaseName(capabilities, testCaseName));
 			property.setArguments(args);
+			property.setProvider(provider);
 			
 		} catch (Exception ex) {
 			throw new RuntimeException(ex);
