@@ -3,7 +3,7 @@
 		"name": "lblPinName",
 		"type": "Label",
 		"locators": [
-			"_._://h4[@class='LegoGestalt_Font']/div"
+			"_._://div[@class='CloseupTitleCard']//h4/div"
 		]
 	},
 	{

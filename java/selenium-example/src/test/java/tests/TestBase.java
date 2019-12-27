@@ -26,12 +26,8 @@ public class TestBase {
 		context.setAttribute("autoLogBug", autoLogBug);
 		Driver.config(Constants.BROWSER_SETTING_FILE, platform, browser, method.getName());
 		Driver.initDriver();
-	
 		Driver.setWaitForAjax(false);
-		Driver.setPageLoadTimeOut(Constants.LONG_TIME);
-		Driver.setTimeOut(Constants.SHORT_TIME);
-		Driver.maximizeBrowser();
-		Driver.navigate(Constants.URL);
+		DriverConfig.loadDriverConfig(browser);
 		PageObjectHelper.loadPageObject(this);
 	}
 

@@ -16,6 +16,7 @@ public class PinPage extends GeneralPage {
 
 	// Methods
 	public String getPinName() {
+		lblPinName.waitForDisplay();
 		return lblPinName.getText();
 	}
 

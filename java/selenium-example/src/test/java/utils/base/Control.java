@@ -38,7 +38,7 @@ class Control {
 		if ((locators == null) || (locators.size() == 0))
 			return "";
 		if (locators.size() == 1) {
-			return locators.get(0).split(":")[1];
+			return locators.get(0).split(":", 2)[1];
 		}
 
 		String browser = Driver.getDriverProperty().getBrowserName();
@@ -57,7 +57,7 @@ class Control {
 		if (oVal.equals(Optional.empty()))
 			oVal = locators.stream().filter(s -> s.startsWith(sKey4)).findFirst();
 
-		return oVal.equals(Optional.empty()) ? "" : oVal.get().split(":")[1];
+		return oVal.equals(Optional.empty()) ? "" : oVal.get().split(":", 2)[1];
 	}
 
 	public void setLocator(String sName, String sValue) {

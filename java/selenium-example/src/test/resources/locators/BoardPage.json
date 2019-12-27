@@ -3,28 +3,59 @@
 		"name": "lblBoardName",
 		"type": "Label",
 		"locators": [
-			"_._://div[@class='boardHeaderWrapper']//h4"
+			"_._://div[@class='boardHeaderWrapper']//h4",
+			"_.mobile:id=com.pinterest:id/board_title"
 		]
 	},
 	{
 		"name": "imgPins",
 		"type": "Image",
 		"locators": [
-			"_._://div[@data-test-id='pinWrapper']//img"
+			"_._://div[@data-test-id='pinWrapper'][%s]//img"
 		]
 	},
 	{
 		"name": "btnAdd",
 		"type": "Button",
 		"locators": [
-			"_._://button[@aria-label='Board Actions']"
+			"_._://button[@aria-label='Board Actions']",
+			"_.mobile://android.widget.TextView[@resource-id='com.pinterest:id/search_view']/../following-sibling::android.widget.ImageView[%s]"
 		]
 	},
 	{
 		"name": "eleCreatePin",
 		"type": "Element",
 		"locators": [
-			"_._://div[@title='Create Pin']"
+			"_._://div[@title='Create Pin']",
+			"_.mobile://android.widget.TextView[@resource-id='com.pinterest:id/option_title' and @text='Pin']"
+		]
+	},
+	{
+		"name": "txtSearch",
+		"type": "TextBox",
+		"locators": [
+			"_.mobile:id=com.pinterest:id/search_view"
+		]
+	},
+	{
+		"name": "lblMoreIdeas",
+		"type": "Label",
+		"locators": [
+			"_.mobile:id=com.pinterest:id/board_host_tab_new_idea"
+		]
+	},
+	{
+		"name": "lblPins",
+		"type": "Label",
+		"locators": [
+			"_.mobile:id=com.pinterest:id/board_host_tab_content"
+		]
+	},
+	{
+		"name": "imgDynamicPinItem",
+		"type": "Image",
+		"locators": [
+			"_.mobile://android.view.View[@content-desc='Pin, Description: %s']"
 		]
 	}
 ]

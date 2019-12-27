@@ -1,11 +1,15 @@
 package pages.Pinterest.CreateBoardPage;
 
+import static org.testng.Assert.assertEquals;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import com.logigear.control.common.IButton;
 import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.CheckBox;
-import com.logigear.control.common.imp.Element;
 import com.logigear.control.common.imp.Image;
 import com.logigear.control.common.imp.TextBox;
 
@@ -17,15 +21,10 @@ import utils.helper.Logger;
 public class CreateBoardPage extends GeneralPage {
 
 	// Dynamic-elements
-	private String strImgPin = "(//div[@class='pinWrapper']//img)[%s]";
-	private String strPin = "(//div[@class='withoutBoxShadow'])[%s]";
+	private String strImgPin = "(//div[@aria-label='add pins to empty board modal']//img)[%s]";
 
 	protected Image imgPin(int index) {
 		return new Image(strImgPin, index);
-	}
-
-	protected Element elePin(int index) {
-		return new Element(strPin, index);
 	}
 
 	// Elements
@@ -34,6 +33,7 @@ public class CreateBoardPage extends GeneralPage {
 	protected Button btnCreate = $(Button.class, "btnCreate");
 	protected Button btnDone = $(Button.class, "btnDone");
 	protected Image imgPins = $(Image.class, "imgPins");
+	private IButton btnsavePin = new Button("//div[@data-test-id='SaveButton']");
 
 	// Methods
 
@@ -50,17 +50,18 @@ public class CreateBoardPage extends GeneralPage {
 		btnDone.click();
 	}
 
-	public Set<String> createBoard(String boardName, boolean visibility, int pin) {
-		Set<String> setPins = new HashSet<String>();
+	public List<String> createBoard(String boardName, boolean visibility, int pin) {
+		List<String> setPins = new ArrayList<String>();
 
 		// Input general info to create a board
 		submitBoardGeneralInfo(boardName, visibility);
 
 		// Select pins
-		imgPins.waitForVisibility();
+		imgPins.waitForDisplay();
 		int totalPins = imgPins.getElements().size();
 		if (totalPins <= 0) {
-			Logger.warning("No pin is displayed");
+			Logger.warning("This test case failed because there are no pins");
+			assertEquals(1, 2, "No pins are displayed");
 		} else {
 			if (totalPins < pin) {
 				pin = totalPins;
@@ -73,7 +74,9 @@ public class CreateBoardPage extends GeneralPage {
 				}
 				selectedPins.add(idx);
 				setPins.add(imgPin(idx).getSource());
-				elePin(idx).click();
+				imgPin(idx).moveTo();
+				btnsavePin.waitForDisplay();
+				btnsavePin.click();
 			}
 		}
 		// Complete create a board
@@ -85,7 +88,7 @@ public class CreateBoardPage extends GeneralPage {
 		createBoard(board.getBoardName(), board.isVisibility());
 	}
 
-	public Set<String> createBoardWithPins(Board board) {
+	public List<String> createBoardWithPins(Board board) {
 		return createBoard(board.getBoardName(), board.isVisibility(), board.getPins());
 	}
 

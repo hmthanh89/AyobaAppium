@@ -1,5 +1,7 @@
 package data.Pinterest;
 
+import com.github.javafaker.Faker;
+
 import utils.common.Common;
 
 public class Board {
@@ -42,7 +44,8 @@ public class Board {
 	}
 
 	public Board() {
-		this.boardName = Common.getRandomString("Board_");
+		Faker faker = new Faker();
+		this.boardName = faker.food().ingredient() + " " + faker.food().ingredient() + " " + faker.food().ingredient();
 		this.visibility = Common.getRandomBoolean();
 		this.pins = Common.getRandomNumber(1, 10);
 		this.description = Common.getRandomString("Description no ");
@@ -53,7 +56,7 @@ public class Board {
 		this.visibility = visibility;
 		this.pins = pins;
 	}
-	
+
 	public Board(String boardName, String description) {
 		this.boardName = boardName;
 		this.description = description;

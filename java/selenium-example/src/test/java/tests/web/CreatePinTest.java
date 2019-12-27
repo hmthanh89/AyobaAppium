@@ -34,6 +34,7 @@ public class CreatePinTest extends TestBase {
 
 		// Create Pin
 		Pin pin = new Pin();
+		pin.setBoardName(board.getBoardName());
 		
 		Logger.info("1. Login to Pinterest");
 		loginPage.login(Constants.EMAIL, Constants.PASSWORD);
@@ -54,6 +55,5 @@ public class CreatePinTest extends TestBase {
 
 		Logger.verify("VP. Verify the Pin is created successfully.");
 		Assert.assertTrue(pinPage.isPinCreated(pin), "The Pin is not created correctly.");
-		
 	}
 }

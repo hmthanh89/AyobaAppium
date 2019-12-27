@@ -14,6 +14,10 @@ public class Constants {
 	public static final int SHORT_TIME = 30;
 	public static final int SLEEP_TIME = 3;
 	public static final int LOADING_TIME = 2;
+	
+	//Setting for swipe screen on mobile
+	public static final int VERTICAL_PERCENTAGE_START_POINT = 50;
+	public static final int HORIZONTAL_PERCENTAGE_START_POINT = 50;
 
 	// Username and password
 	public static final String EMAIL = PropertiesHelper.getPropValue("profile.user.email");

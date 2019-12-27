@@ -1,10 +1,9 @@
 package tests.web;
 
-import java.util.Set;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import data.Pinterest.Board;
 import pages.Pinterest.BoardPage.BoardPage;
 import pages.Pinterest.CreateBoardPage.CreateBoardPage;
@@ -64,7 +63,7 @@ public class CreateBoardTest extends TestBase {
 		profilePage.goToCreateBoardPage();
 
 		Logger.info("4. Select some Pins");
-		Set<String> setPins = createBoardPage.createBoardWithPins(board);
+		List<String> setPins = createBoardPage.createBoardWithPins(board);
 
 		Logger.verify("VP. Verify the Board is created with the selected Pins.");
 		Assert.assertTrue(boardPage.isBoardCreatedWithSelectedPins(board.getBoardName(), setPins),
