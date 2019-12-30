@@ -57,5 +57,82 @@
 		"locators": [
 			"_.mobile://android.view.View[@content-desc='Pin, Description: %s']"
 		]
+	},
+	{
+		"name": "eleDisplayedPin",
+		"type": "Element",
+		"locators": [
+			"_.mobile://androidx.recyclerview.widget.RecyclerView[@resource-id='com.pinterest:id/recycler_adapter_view']//android.widget.ImageView[@content-desc='Save pin to your board with one tap']"
+		]
+	},
+	{
+		"name": "eleMoreIdeasPinItem",
+		"type": "Element",
+		"locators": [
+			"_.mobile:(//android.widget.ImageView[@content-desc='Save pin to your board with one tap']/preceding-sibling::android.view.View)[%s]"
+		]
+	},
+	{
+		"name": "eleSelectedPin",
+		"type": "Element",
+		"locators": [
+			"_.mobile://androidx.recyclerview.widget.RecyclerView[@resource-id='com.pinterest:id/recycler_adapter_view']/android.widget.FrameLayout/android.view.View"
+		]
+	},
+	{
+		"name": "eleSelectedPinItem",
+		"type": "Element",
+		"locators": [
+			"_.mobile:(//androidx.recyclerview.widget.RecyclerView[@resource-id='com.pinterest:id/recycler_adapter_view']/android.widget.FrameLayout/android.view.View)[%s]"
+		]
+	},
+	{
+		"name": "eleDynamicAddPin",
+		"type": "Element",
+		"locators": [
+			"_.mobile:(//androidx.recyclerview.widget.RecyclerView[@resource-id='com.pinterest:id/recycler_adapter_view']//android.widget.ImageView[@content-desc='Save pin to your board with one tap'])[%s]"
+		]
+	},
+	{
+		"name": "eleCarouselPin",
+		"type": "Element",
+		"locators": [
+			"_._://div[@data-test-id='pinWrapper']//div[@data-test-id='carousel-pin']"
+		]
+	},
+	{
+		"name": "eleDynamicCarouselPinItem",
+		"type": "Element",
+		"locators": [
+			"_._:(//div[@data-test-id='pinWrapper']//div[@data-test-id='carousel-pin'])[%s]//img[1]"
+		]
+	},
+	{
+		"name": "eleCheckCarouselPin",
+		"type": "Element",
+		"locators": [
+			"_._:(//div[@data-test-id='pinWrapper']//img)[%s]/ancestor::div[@data-test-id='carousel-pin']"
+		]
+	},
+	{
+		"name": "imgDynamicPin",
+		"type": "Element",
+		"locators": [
+			"_._:(//div[@data-test-id='pinWrapper']//img)[%s]"
+		]
+	},
+	{
+		"name": "imgTotalPin",
+		"type": "Element",
+		"locators": [
+			"_._://div[@data-test-id='pinWrapper']//img"
+		]
+	},
+	{
+		"name": "txtBoardNameAt1stTime",
+		"type": "TextBox",
+		"locators": [
+			"_._:id=com.pinterest:id/board_name_et"
+		]
 	}
 ]

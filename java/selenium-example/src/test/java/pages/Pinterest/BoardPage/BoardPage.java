@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.logigear.control.common.IElement;
 import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.Element;
 import com.logigear.control.common.imp.Label;
@@ -18,15 +17,11 @@ public class BoardPage extends GeneralPage {
 	protected Button btnAdd = $(Button.class, "btnAdd");
 	protected Element eleCreatePin = $(Element.class, "eleCreatePin");
 	protected TextBox txtSearch = $(TextBox.class, "txtSearch");
-
-	private IElement eleCarouselPin = new Element(
-			"//div[@data-test-id='pinWrapper']//div[@data-test-id='carousel-pin']");
-	private IElement eleDynamicCarouselPinItem = new Element(
-			"(//div[@data-test-id='pinWrapper']//div[@data-test-id='carousel-pin'])[%s]//img[1]");
-	private IElement eleCheckCarouselPin = new Element(
-			"(//div[@data-test-id='pinWrapper']//img)[%s]/ancestor::div[@data-test-id='carousel-pin']");
-	private IElement imgDynamicPin = new Element("(//div[@data-test-id='pinWrapper']//img)[%s]");
-	private IElement imgTotalPin = new Element("//div[@data-test-id='pinWrapper']//img");
+	protected Element eleCarouselPin = $(Element.class, "eleCarouselPin");
+	protected Element eleDynamicCarouselPinItem = $(Element.class, "eleDynamicCarouselPinItem");
+	protected Element eleCheckCarouselPin = $(Element.class, "eleCheckCarouselPin");
+	protected Element imgDynamicPin = $(Element.class, "imgDynamicPin");
+	protected Element imgTotalPin = $(Element.class, "imgTotalPin");
 
 	// Methods
 	public String getBoardName() {
@@ -49,7 +44,7 @@ public class BoardPage extends GeneralPage {
 		int totalPins = imgTotalPin.getElements().size();
 		for (int i = 1; i <= totalPins; i++) {
 			eleCheckCarouselPin.setDynamicValue(i);
-			if (!eleCheckCarouselPin.isDisplayed()) {	
+			if (!eleCheckCarouselPin.isDisplayed()) {
 				imgDynamicPin.setDynamicValue(i);
 				pinsSource.add(imgDynamicPin.getAttribute("src"));
 			}

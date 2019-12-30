@@ -2,16 +2,14 @@ package pages.Pinterest.CreateBoardPage;
 
 import java.util.List;
 
-import com.logigear.control.common.ITextBox;
 import com.logigear.control.common.imp.TextBox;
-
 import pages.Pinterest.BoardPage.BoardPage_MOBILE;
 
 public class CreateBoardPage_MOBILE extends CreateBoardPage {
 
 	BoardPage_MOBILE boardPage = new BoardPage_MOBILE();
 
-	private ITextBox txtBoardNameAt1stTime = new TextBox("id=com.pinterest:id/board_name_et");
+	protected TextBox txtBoardNameAt1stTime = $(TextBox.class, "txtBoardNameAt1stTime");
 
 	@Override
 	public void submitBoardGeneralInfo(String boardName, boolean visibility) {

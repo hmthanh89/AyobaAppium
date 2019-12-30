@@ -36,5 +36,19 @@
 		"locators": [
 			"_._://div[@aria-label='add pins to empty board modal']//img"
 		]
+	},
+		{
+		"name": "txtBoardNameAt1stTime",
+		"type": "TextBox",
+		"locators": [
+			"_.mobile:id=com.pinterest:id/board_name_edittext"
+		]
+	},
+	{
+		"name": "btnsavePin",
+		"type": "Button",
+		"locators": [
+			"_._://div[@data-test-id='SaveButton']"
+		]
 	}
 ]

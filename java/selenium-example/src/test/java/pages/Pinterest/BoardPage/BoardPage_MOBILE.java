@@ -1,11 +1,7 @@
 package pages.Pinterest.BoardPage;
 
-import static org.testng.Assert.assertEquals;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import com.logigear.control.common.IElement;
 import com.logigear.control.common.imp.Element;
 import com.logigear.control.common.imp.Image;
 import com.logigear.control.common.imp.Label;
@@ -18,16 +14,11 @@ public class BoardPage_MOBILE extends BoardPage {
 	protected Label lblMoreIdeas = $(Label.class, "lblMoreIdeas");
 	protected Label lblPins = $(Label.class, "lblPins");
 	protected Image imgDynamicPinItem = $(Image.class, "imgDynamicPinItem");
-	IElement eleDisplayedPin = new Element(
-			"//androidx.recyclerview.widget.RecyclerView[@resource-id='com.pinterest:id/recycler_adapter_view']//android.widget.ImageView[@content-desc='Save pin to your board with one tap']");
-	IElement eleMoreIdeasPinItem = new Element(
-			"(//android.widget.ImageView[@content-desc='Save pin to your board with one tap']/preceding-sibling::android.view.View)[%s]");
-	IElement eleSelectedPin = new Element(
-			"//androidx.recyclerview.widget.RecyclerView[@resource-id='com.pinterest:id/recycler_adapter_view']/android.widget.FrameLayout/android.view.View");
-	IElement eleSelectedPinItem = new Element(
-			"(//androidx.recyclerview.widget.RecyclerView[@resource-id='com.pinterest:id/recycler_adapter_view']/android.widget.FrameLayout/android.view.View)[%s]");
-	IElement eleDynamicAddPin = new Element(
-			"(//androidx.recyclerview.widget.RecyclerView[@resource-id='com.pinterest:id/recycler_adapter_view']//android.widget.ImageView[@content-desc='Save pin to your board with one tap'])[%s]");
+	protected Element eleDisplayedPin =  $(Element.class, "eleDisplayedPin");
+	protected Element eleMoreIdeasPinItem =  $(Element.class, "eleMoreIdeasPinItem");
+	protected Element eleSelectedPin =  $(Element.class, "eleSelectedPin");
+	protected Element eleSelectedPinItem =  $(Element.class, "eleSelectedPinItem");
+	protected Element eleDynamicAddPin =  $(Element.class, "eleDynamicAddPin");
 
 	@Override
 	public void goToCreatePinPage() {
@@ -62,7 +53,7 @@ public class BoardPage_MOBILE extends BoardPage {
 
 		if (numOfDisplayedPins <= 0) {
 			Logger.warning("This test case failed because there are no pins");
-			assertEquals(1, 2, "No pins are displayed");
+			throw new IllegalArgumentException("This test case failed because there are no pins");
 		} else {
 			swipeVertical(Constants.VERTICAL_PERCENTAGE_START_POINT, -300, Constants.HORIZONTAL_PERCENTAGE_START_POINT);
 			for (int i = 1; i <= numOfDisplayedPins; i++) {

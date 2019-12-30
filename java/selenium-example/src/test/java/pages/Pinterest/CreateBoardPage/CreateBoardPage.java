@@ -1,13 +1,10 @@
 package pages.Pinterest.CreateBoardPage;
 
-import static org.testng.Assert.assertEquals;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.logigear.control.common.IButton;
 import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.CheckBox;
 import com.logigear.control.common.imp.Image;
@@ -33,7 +30,8 @@ public class CreateBoardPage extends GeneralPage {
 	protected Button btnCreate = $(Button.class, "btnCreate");
 	protected Button btnDone = $(Button.class, "btnDone");
 	protected Image imgPins = $(Image.class, "imgPins");
-	private IButton btnsavePin = new Button("//div[@data-test-id='SaveButton']");
+	
+	protected Button btnsavePin = $(Button.class, "btnsavePin");
 
 	// Methods
 
@@ -61,7 +59,7 @@ public class CreateBoardPage extends GeneralPage {
 		int totalPins = imgPins.getElements().size();
 		if (totalPins <= 0) {
 			Logger.warning("This test case failed because there are no pins");
-			assertEquals(1, 2, "No pins are displayed");
+			throw new IllegalArgumentException("This test case failed because there are no pins");
 		} else {
 			if (totalPins < pin) {
 				pin = totalPins;
