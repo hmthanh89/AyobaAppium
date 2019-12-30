@@ -1,41 +1,62 @@
 package pages.Pinterest.BoardPage;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.openqa.selenium.WebElement;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.Element;
-import com.logigear.control.common.imp.Image;
 import com.logigear.control.common.imp.Label;
-
+import com.logigear.control.common.imp.TextBox;
 import pages.Pinterest.GeneralPage.GeneralPage;
 
 public class BoardPage extends GeneralPage {
 
 	// Elements
 	protected Label lblBoardName = $(Label.class, "lblBoardName");
-	protected Image imgPins = $(Image.class, "imgPins");
 	protected Button btnAdd = $(Button.class, "btnAdd");
 	protected Element eleCreatePin = $(Element.class, "eleCreatePin");
+	protected TextBox txtSearch = $(TextBox.class, "txtSearch");
+	protected Element eleCarouselPin = $(Element.class, "eleCarouselPin");
+	protected Element eleDynamicCarouselPinItem = $(Element.class, "eleDynamicCarouselPinItem");
+	protected Element eleCheckCarouselPin = $(Element.class, "eleCheckCarouselPin");
+	protected Element imgDynamicPin = $(Element.class, "imgDynamicPin");
+	protected Element imgTotalPin = $(Element.class, "imgTotalPin");
 
 	// Methods
 	public String getBoardName() {
+		lblBoardName.waitForDisplay();
 		return lblBoardName.getText();
 	}
 
-	public Set<String> getPinsSource() {
-		imgPins.waitForVisibility();
-		Set<String> pinsSource = new HashSet<String>();
-		for (WebElement pin : imgPins.getElements()) {
-			pinsSource.add(pin.getAttribute("src"));
+	public List<String> getPinsSource() {
+		imgDynamicPin.setDynamicValue(1);
+		imgDynamicPin.waitForDisplay();
+		List<String> pinsSource = new ArrayList<String>();
+		int totalCarousePin = eleCarouselPin.getElements().size();
+		if (totalCarousePin != 0) {
+			for (int i = 1; i <= totalCarousePin; i++) {
+				eleDynamicCarouselPinItem.setDynamicValue(i);
+				pinsSource.add(eleDynamicCarouselPinItem.getAttribute("src"));
+			}
+		}
+
+		int totalPins = imgTotalPin.getElements().size();
+		for (int i = 1; i <= totalPins; i++) {
+			eleCheckCarouselPin.setDynamicValue(i);
+			if (!eleCheckCarouselPin.isDisplayed()) {
+				imgDynamicPin.setDynamicValue(i);
+				pinsSource.add(imgDynamicPin.getAttribute("src"));
+			}
 		}
 		return pinsSource;
 	}
 
-	public boolean isBoardCreatedWithSelectedPins(String boardName, Set<String> expectedPins) {
-		return (boardName.equals(getBoardName()) && expectedPins.equals(getPinsSource()));
+	public boolean isBoardCreatedWithSelectedPins(String boardName, List<String> expectedPins) {
+		List<String> recordArr = getPinsSource();
+		Collections.sort(recordArr);
+		Collections.sort(expectedPins);
+		return (boardName.equals(getBoardName()) && expectedPins.equals(recordArr));
 	}
 
 	public void goToCreatePinPage() {
@@ -44,4 +65,5 @@ public class BoardPage extends GeneralPage {
 		eleCreatePin.waitForVisibility();
 		eleCreatePin.click();
 	}
+
 }

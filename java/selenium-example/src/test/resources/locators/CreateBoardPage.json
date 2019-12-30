@@ -3,21 +3,24 @@
 		"name": "txtBoardName",
 		"type": "TextBox",
 		"locators": [
-			"_._://input[@name='boardName']"
+			"_._://input[@name='boardName']",
+			"_.mobile:id=com.pinterest:id/board_name_edittext"
 		]
 	},
 	{
 		"name": "chkboxVisibility",
 		"type": "CheckBox",
 		"locators": [
-			"_._://input[@name='secret']"
+			"_._://input[@name='secret']",
+			"_.mobile:id=com.pinterest:id/is_secret_board_toggle"
 		]
 	},
 	{
 		"name": "btnCreate",
 		"type": "Button",
 		"locators": [
-			"_._://button[div='Create']"
+			"_._://button[div='Create']",
+			"_.mobile:id=com.pinterest:id/create_btn"
 		]
 	},
 	{
@@ -31,7 +34,21 @@
 		"name": "imgPins",
 		"type": "Image",
 		"locators": [
-			"_._://div[@class='pinWrapper']//img"
+			"_._://div[@aria-label='add pins to empty board modal']//img"
+		]
+	},
+		{
+		"name": "txtBoardNameAt1stTime",
+		"type": "TextBox",
+		"locators": [
+			"_.mobile:id=com.pinterest:id/board_name_edittext"
+		]
+	},
+	{
+		"name": "btnsavePin",
+		"type": "Button",
+		"locators": [
+			"_._://div[@data-test-id='SaveButton']"
 		]
 	}
 ]

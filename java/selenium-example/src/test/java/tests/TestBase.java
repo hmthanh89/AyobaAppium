@@ -26,12 +26,8 @@ public class TestBase {
 		context.setAttribute("autoLogBug", autoLogBug);
 		Driver.config(Constants.BROWSER_SETTING_FILE, platform, browser, method.getName());
 		Driver.initDriver();
-	
 		Driver.setWaitForAjax(false);
-		Driver.setPageLoadTimeOut(Constants.LONG_TIME);
-		Driver.setTimeOut(Constants.SHORT_TIME);
-		Driver.maximizeBrowser();
-		Driver.navigate(Constants.URL);
+		loadDriverConfig(browser);
 		PageObjectHelper.loadPageObject(this);
 	}
 
@@ -40,5 +36,24 @@ public class TestBase {
 	public void cleanUp(ITestResult result) {
 		// Driver.quit(result.isSuccess());
 		Driver.quit();
+	}
+	
+	public void loadAndroidNativeAppConfig() {
+		Driver.setTimeOut(Constants.SHORT_TIME);
+	}
+
+	public void loadWebBrowserConfig() {
+		Driver.setPageLoadTimeOut(Constants.LONG_TIME);
+		Driver.setTimeOut(Constants.SHORT_TIME);
+		Driver.maximizeBrowser();
+		Driver.navigate(Constants.URL);
+	}
+
+	public void loadDriverConfig(String browser) {
+		if (browser.equals("android.native")) {
+			loadAndroidNativeAppConfig();
+		} else {
+			loadWebBrowserConfig();
+		}
 	}
 }

@@ -10,15 +10,18 @@ public class LoginPage extends PageFactory {
 	// Elements
 	protected TextBox txtEmail = $(TextBox.class, "txtEmail");
 	protected TextBox txtPassword = $(TextBox.class, "txtPassword");
+	protected Button btnContinue = $(Button.class, "btnContinue");
 	protected Button btnLogin = $(Button.class, "btnLogin");
+	protected Button btnWelcomeLogin = $(Button.class, "btnWelcomeLogin");
 
 	// Methods
 	public void login(String email, String password) {
-		txtEmail.waitForVisibility();
+		btnWelcomeLogin.waitForDisplay();
+		btnWelcomeLogin.click();
+		txtEmail.waitForDisplay();
 		txtEmail.enter(email);
 		txtPassword.enter(password);
 		btnLogin.click();
-		btnLogin.waitForInvisibility();
 	}
 
 }

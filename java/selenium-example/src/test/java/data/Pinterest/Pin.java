@@ -11,6 +11,15 @@ public class Pin {
 	private String image;
 	private String imageUrl;
 	private String imageBase64;
+	private String boardName;
+
+	public String getBoardName() {
+		return boardName;
+	}
+
+	public void setBoardName(String boardName) {
+		this.boardName = boardName;
+	}
 
 	public String getPinName() {
 		return pinName;
