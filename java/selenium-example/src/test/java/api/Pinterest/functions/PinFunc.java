@@ -24,9 +24,6 @@ public class PinFunc {
 		body = String.format(body, sboard, pin.getNote(), pin.getImageUrl());
 
 		ResponseMessage response = api.createPin(body);
-		if (response==null) {
-			response = api.createPin(body);
-		}
 
 		responseInfo.put("message", response.getOriginalContent(Response.class).getBody().jsonPath().get("message"));
 		responseInfo.put("id", response.getOriginalContent(Response.class).getBody().jsonPath().get("id"));
@@ -39,9 +36,6 @@ public class PinFunc {
 		body = String.format(body, pin.getNote(), pin.getImageUrl());
 
 		ResponseMessage response = api.createPin(body);
-		if (response==null) {
-			response = api.createPin(body);
-		}
 
 		return response.getOriginalContent(Response.class).getBody().jsonPath().get("message");
 	}
