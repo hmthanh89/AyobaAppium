@@ -10,8 +10,8 @@
 		<classes>
 			<class name="tests.api.PinsTest">
 				<methods>
-					<!-- <include name="TC01_Create_Pin_Without_Board"/>
-					<include name="TC02_Create_Pin_With_Deleted_Board" /> -->
+					<include name="TC01_Create_Pin_Without_Board"/>
+					<include name="TC02_Create_Pin_With_Deleted_Board" />
 					<include name="TC03_Create_Pin_Without_Optional_Parameter"/>
 				</methods>
 			</class>

@@ -2,6 +2,7 @@ package api.Pinterest.functions;
 
 import api.Pinterest.resources.PinApi;
 import api_object.ResponseMessage;
+import data.ResponseObject;
 import data.Pinterest.Board;
 import data.Pinterest.Pin;
 import io.restassured.response.Response;
@@ -15,23 +16,29 @@ public class PinFunc {
 		api = new PinApi();
 	}
 
-	public String createPin(Board board, Pin pin) {
-		String sboard = Constants.USERNAME + "/" + board.getBoardName();
+	public ResponseObject createPin(Board board, Pin pin) {
+		String sboard = Constants.USERNAME + "/" + board.getBoardName().toLowerCase().replaceAll(" ", "-");
 		String body = "{\"board\": \"%s\",\"note\": \"%s\",\"image_url\":\"%s\"}";
 		body = String.format(body, sboard, pin.getNote(), pin.getImageUrl());
 
 		ResponseMessage response = api.createPin(body);
+		ResponseObject responseObject = new ResponseObject();
+		responseObject.setMessage(response.getOriginalContent(Response.class).getBody().jsonPath().get("message"));
+		responseObject.setStatusCode("" + response.getStatusCode());
 
-		return response.getOriginalContent(Response.class).getBody().jsonPath().get("message");
+		return responseObject;
 	}
 
-	public String createPin(Pin pin) {
+	public ResponseObject createPin(Pin pin) {
 		String body = "{\"note\": \"%s\",\"image_url\":\"%s\"}";
 		body = String.format(body, pin.getNote(), pin.getImageUrl());
 
 		ResponseMessage response = api.createPin(body);
+		ResponseObject responseObject = new ResponseObject();
+		responseObject.setMessage(response.getOriginalContent(Response.class).getBody().jsonPath().get("message"));
+		responseObject.setStatusCode("" + response.getStatusCode());
 
-		return response.getOriginalContent(Response.class).getBody().jsonPath().get("message");
+		return responseObject;
 	}
 
 }

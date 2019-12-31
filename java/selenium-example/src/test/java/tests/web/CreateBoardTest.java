@@ -22,11 +22,12 @@ public class CreateBoardTest extends TestBase {
 	ProfilePage profilePage;
 	CreateBoardPage createBoardPage;
 	BoardPage boardPage;
+	Board board;
 
 	@Test(description = "User is able to create a new Board without any Pin")
 	public void TC01_Create_New_Board() {
 		// Create Board
-		Board board = new Board();
+		board = new Board();
 
 		Logger.info("1. Login to Pinterest");
 		loginPage.login(Constants.EMAIL, Constants.PASSWORD);
@@ -48,7 +49,7 @@ public class CreateBoardTest extends TestBase {
 	@Test(description = "User is able to create a new Board with some Pins")
 	public void TC02_Create_New_Board_With_Pins() {
 		// Create Board
-		Board board = new Board();
+		board = new Board();
 
 		Logger.info("1. Login to Pinterest");
 		loginPage.login(Constants.EMAIL, Constants.PASSWORD);
