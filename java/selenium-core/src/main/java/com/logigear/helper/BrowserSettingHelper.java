@@ -21,6 +21,7 @@ public class BrowserSettingHelper {
 				throw new Exception(String.format("Cannot find '%s' in file '%s'", sectionName, file));
 			}
 			String mode = section.get("mode");
+			String platform = section.get("platform");
 			String driverType = section.get("driver");
 			String browserName = driverType.toLowerCase();
 			String driverExecutable = section.get("executable");
@@ -31,6 +32,7 @@ public class BrowserSettingHelper {
 			
 			property.setDriverExecutable(driverExecutable);
 			property.setDriverType(converStringToDriverType(driverType));
+			property.setPlatform(platform);
 			property.setBrowserName(browserName);
 			property.setRemoteUrl(remoteUrl);
 			property.setMode(converStringToRunningMode(mode));
