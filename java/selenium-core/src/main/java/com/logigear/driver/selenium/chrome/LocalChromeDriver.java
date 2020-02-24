@@ -16,7 +16,9 @@ public class LocalChromeDriver extends BaseDriver {
 
 	@Override
 	public void createWebDriver() {
-		WebDriverManager.chromedriver().setup();
+		
+		String driverVerion = (String) property.getCapabilities().getCapability("driverVersion");
+		WebDriverManager.chromedriver().version(driverVerion).setup();
 		
 		ChromeOptions ops = new ChromeOptions();
 
