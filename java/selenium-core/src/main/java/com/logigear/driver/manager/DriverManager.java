@@ -48,12 +48,11 @@ public class DriverManager {
 		return getBaseDriver().property;
 	}
 
-	public static void config(String propertyFile, String platform, String sectionName, String testCaseName) {
+	public static void config(String propertyFile, String sectionName, String testCaseName) {
 		if (DRIVER.get() == null)
 			DRIVER.set(new HashMap<String, BaseDriver>());
 
 		DriverProperty property = BrowserSettingHelper.getDriverProperty(propertyFile, sectionName, testCaseName);
-		property.setPlatform(platform);
 		tmpProperty.set(property);
 	}
 

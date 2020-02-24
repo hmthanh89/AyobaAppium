@@ -111,9 +111,9 @@
 		<dependency>
 			<groupId>com.logigear</groupId>
 			<artifactId>selenium-core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/src/test/resources/libs/selenium-core-0.0.1-SNAPSHOT.jar</systemPath>
+			<systemPath>${project.basedir}/src/test/resources/libs/selenium-core-0.0.2.jar</systemPath>
 		</dependency>
 
 		<dependency>
@@ -138,7 +138,6 @@
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>3.1.0</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.rest-assured</groupId>

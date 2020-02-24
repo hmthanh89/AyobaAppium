@@ -18,13 +18,13 @@ import utils.config.ModuleFactory;
 @Guice(modules = ModuleFactory.class)
 public class TestBase {
 
-	@Parameters({ "browser", "autoLogBug", "platform" })
+	@Parameters({ "browser", "autoLogBug" })
 	@BeforeMethod(alwaysRun = true)
-	public void beforeMethod(String browser, boolean autoLogBug, String platform, Method method, ITestContext context)
+	public void beforeMethod(String browser, boolean autoLogBug, Method method, ITestContext context)
 			throws Throwable {
 		
 		context.setAttribute("autoLogBug", autoLogBug);
-		Driver.config(Constants.BROWSER_SETTING_FILE, platform, browser, method.getName());
+		Driver.config(Constants.BROWSER_SETTING_FILE, browser, method.getName());
 		Driver.initDriver();
 		Driver.setWaitForAjax(false);
 		loadDriverConfig(browser);
