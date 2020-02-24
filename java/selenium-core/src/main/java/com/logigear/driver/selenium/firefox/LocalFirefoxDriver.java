@@ -16,7 +16,9 @@ public class LocalFirefoxDriver extends BaseDriver {
 
 	@Override
 	public void createWebDriver() {
-		WebDriverManager.firefoxdriver().setup();
+		String driverVerion = (String) property.getCapabilities().getCapability("driverVersion");
+
+		WebDriverManager.firefoxdriver().version(driverVerion).setup();
 		FirefoxOptions ops = new FirefoxOptions();
 		
 		ops.addArguments(property.getArguments());
