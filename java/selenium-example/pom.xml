@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.logigear</groupId>
@@ -25,8 +26,39 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<executions>
+					<execution>
+						<id>install-selenium-core</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>							
+							<file>${project.basedir}/src/test/resources/libs/selenium-core-0.0.2.jar</file>
+							<packaging>jar</packaging>
+							<localRepositoryPath>m2-repo</localRepositoryPath>
+						</configuration>
+					</execution>
+					<execution>
+						<id>install-api</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<file>${project.basedir}/src/test/resources/libs/restful-api-0.0.1.jar</file>
+							<packaging>jar</packaging>
+							<localRepositoryPath>m2-repo</localRepositoryPath>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.20.1</version>
+				<version>3.0.0-M1</version>
 				<configuration>
 					<skipTests>true</skipTests>
 				</configuration>
@@ -35,7 +67,11 @@
 	</build>
 	<repositories>
 		<repository>
-			<id>releases</id>
+			<id>m2-repo</id>
+			<url>file://${project.basedir}\m2-repo</url>
+		</repository>
+		<repository>
+			<id>maven-repository</id>
 			<url>${user.home}\.m2\repository</url>
 		</repository>
 		<repository>
@@ -51,6 +87,7 @@
 				<checksumPolicy>warn</checksumPolicy>
 			</releases>
 		</repository>
+
 	</repositories>
 	<dependencies>
 		<dependency>
@@ -59,20 +96,15 @@
 			<version>23.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.11.0</version>
-		</dependency>
-		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.14.2</version>
+			<version>7.1.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.saucelabs</groupId>
 			<artifactId>saucerest</artifactId>
-			<version>1.0.36</version>
+			<version>1.0.44</version>
 		</dependency>
 
 		<dependency>
@@ -114,27 +146,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.logigear</groupId>
-			<artifactId>selenium-core</artifactId>
-			<version>0.0.2</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/test/resources/libs/selenium-core-0.0.2.jar</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>com.logigear</groupId>
-			<artifactId>restful-api</artifactId>
-			<version>0.0.1</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/test/resources/libs/restful-api-0.0.1-SNAPSHOT.jar</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>1.3.2</version>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.6</version>
@@ -161,11 +172,6 @@
 			<version>3.1.5</version>
 		</dependency>
 		<dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>LATEST</version>
-		</dependency>
-		<dependency>
 			<!-- JRJC is distributed under the Apache 2.0 license. -->
 			<groupId>com.atlassian.jira</groupId>
 			<artifactId>jira-rest-java-client</artifactId>
@@ -180,6 +186,18 @@
 					<artifactId>stax-api</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<!-- Must run "mvn clean" first to install a local repo -->
+			<groupId>com.logigear</groupId>
+			<artifactId>selenium-core</artifactId>
+			<version>0.0.2</version>
+		</dependency>
+		<dependency>
+			<!-- Must run "mvn clean" first to install a local repo -->
+			<groupId>com.logigear</groupId>
+			<artifactId>restful-api</artifactId>
+			<version>0.0.1</version>
 		</dependency>
 	</dependencies>
 </project>
