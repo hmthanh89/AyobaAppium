@@ -1,7 +1,7 @@
 package api.Pinterest.functions;
 
 import api.Pinterest.resources.PinApi;
-import api_object.ResponseMessage;
+import api.object.ResponseMessage;
 import data.ResponseObject;
 import data.Pinterest.Board;
 import data.Pinterest.Pin;

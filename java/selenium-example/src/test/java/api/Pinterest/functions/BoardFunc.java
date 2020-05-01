@@ -1,7 +1,7 @@
 package api.Pinterest.functions;
 
 import api.Pinterest.resources.BoardApi;
-import api_object.ResponseMessage;
+import api.object.ResponseMessage;
 import data.Pinterest.Board;
 import utils.common.Constants;
 
